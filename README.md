@@ -9,11 +9,23 @@ before
 <img src="abc.jpg" width="176" height="106" alt="" />
 ```
 
+```css
+body {
+  background: url("abc.jpg");
+}
+```
+
 after
 ```html
 <link href="abc.css?v=c689073d22c3" rel="stylesheet">
 <script type="text/javascript" src="abc.js?v=be3c502107d9"></script>
 <img src="abc.jpg?v=a96086485c4d" width="176" height="106" alt="" />
+```
+
+```css
+body {
+  background: url("abc.jpg?v=a96086485c4d");
+}
 ```
 
 # Usage
@@ -22,13 +34,24 @@ npm install gulp-rev-doc --save-dev
 ```
 
 ```js
+var gulp = require('gulp')
 var revDoc = require('gulp-rev-doc');
 
-gulp.task('default', function() {
+
+gulp.task('html', function() {
     return gulp.src('./src/**/*.html')
         .pipe(revDoc())
         .pipe(gulp.dest('./src'))
 });
+
+
+gulp.task('css', function() {
+    return gulp.src('./src/**/*.css')
+        .pipe(revDoc())
+        .pipe(gulp.dest('./src'))
+});
+
+gulp.task('default', ['html', 'css']);
 ```
 
 # Links

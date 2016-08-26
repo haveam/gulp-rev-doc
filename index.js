@@ -40,7 +40,8 @@ function gulpScriptRev(options) {
         [
             /(<script)(.*?)(src=")([^"]*)(".*?)(>\s*<\/script>)/g,
             /(<img)(.*?)(src=")([^"]*)(".*?)(>)/g,
-            /(<link)(.*?)(href=")([^"]*)(".*?)(>)/g
+            /(<link)(.*?)(href=")([^"]*)(".*?)(>)/g,
+            /(u)(r)(l\("?)(.*?)("?\))(.*?)/g
         ].forEach(function(zz) {
             html = html.replace(zz, function(test, t1, t2, t3, t4, t5, t6) {
                 t4 = t4.split('?')[0];
