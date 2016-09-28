@@ -61,7 +61,8 @@ function gulpScriptRev(options) {
                 }
                 out.push(t5);
                 out.push(t6);
-                return out.join('');
+
+                return hash ? out.join('') : test;
             });
         });
 
