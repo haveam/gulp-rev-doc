@@ -50,7 +50,6 @@ function gulpScriptRev(options) {
 					return test;
 				}
 
-
 				t4 = t4.split('?')[0];
 
 				var url = t4.match('^\/') ? baseDir : fileDir;
